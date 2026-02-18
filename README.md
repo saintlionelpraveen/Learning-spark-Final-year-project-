@@ -1,4 +1,4 @@
-# 📘 Learning Spark — User Manual
+# Learning Spark — User Manual
 
 > **Version 1.0** · A modern staff–user learning management platform with liquid-glass UI
 
@@ -34,16 +34,16 @@ The platform features a modern **Liquid Glass UI** with frosted-glass effects, s
 
 | Feature | Description |
 |---------|-------------|
-| 🔐 **Registration Approval** | All new users require admin approval before accessing the platform |
-| 👤 **Role Assignment** | Admin assigns roles (User or Staff) during approval |
-| 📚 **Content Management** | Staff can upload videos, PDFs, and blog posts |
-| ⭐ **Rating System** | Users can rate staff content with a 5-star widget |
-| 💬 **Messaging System** | Users ↔ Staff and Staff ↔ Admin messaging with chat bubbles |
-| 📝 **Feedback System** | Users can send feedback to staff members |
-| 🔔 **Notifications** | Admin receives real-time notification counts |
-| 👁️ **Content Preview** | Inline video player, PDF viewer, and blog reader |
-| 📊 **Dashboard Analytics** | Charts and stats for staff activity |
-| 🎨 **Premium UI** | Liquid glass design with animations and responsive layout |
+|  **Registration Approval** | All new users require admin approval before accessing the platform |
+|  **Role Assignment** | Admin assigns roles (User or Staff) during approval |
+|  **Content Management** | Staff can upload videos, PDFs, and blog posts |
+|  **Rating System** | Users can rate staff content with a 5-star widget |
+|  **Messaging System** | Users ↔ Staff and Staff ↔ Admin messaging with chat bubbles |
+|  **Feedback System** | Users can send feedback to staff members |
+|  **Notifications** | Admin receives real-time notification counts |
+|  **Content Preview** | Inline video player, PDF viewer, and blog reader |
+|  **Dashboard Analytics** | Charts and stats for staff activity |
+|  **Premium UI** | Liquid glass design with animations and responsive layout |
 
 ---
 
