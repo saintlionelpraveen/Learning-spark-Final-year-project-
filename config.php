@@ -2,7 +2,7 @@
 // Production-ready database configuration
 // Update these settings when deploying to a live server (e.g., InfinityFree)
 
-$db_host = 'sql209.infinityfree.com';
+$db_host = 'sql203.infinityfree.com';
 $db_user = 'if0_41193976';
 $db_pass = 'tebi1328';
 $db_name = 'if0_41193976_learning';
