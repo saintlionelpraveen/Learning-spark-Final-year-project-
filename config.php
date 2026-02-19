@@ -2,10 +2,10 @@
 // Production-ready database configuration
 // Update these settings when deploying to a live server (e.g., InfinityFree)
 
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = '';
-$db_name = 'learning';
+$db_host = 'sql209.infinityfree.com';
+$db_user = 'if0_41193976';
+$db_pass = 'tebi1328';
+$db_name = 'if0_41193976_learning';
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
