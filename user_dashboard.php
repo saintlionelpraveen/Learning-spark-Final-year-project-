@@ -8,9 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'user') {
 $user_id = $_SESSION['user_id'];
 $user_name = $_SESSION['name'];
 
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error)
-    die("Connection failed: " . $conn->connect_error);
+include 'config.php';
 
 // Fetch user info
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");

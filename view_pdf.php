@@ -13,10 +13,7 @@ if (!isset($_GET['content_id'])) {
 $content_id = intval($_GET['content_id']);
 $download = isset($_GET['download']) && $_GET['download'] == 1;
 
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'config.php';
 
 $stmt = $conn->prepare("SELECT file_path FROM staff_content WHERE content_id = ?");
 $stmt->bind_param("i", $content_id);

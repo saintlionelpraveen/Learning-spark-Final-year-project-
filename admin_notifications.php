@@ -10,10 +10,7 @@ if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
     die("Session email not set or empty.");
 }
 
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'config.php';
 
 // Fetch admin ID
 $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
@@ -201,7 +198,8 @@ $conn->close();
                         <div class="avatar violet"><?php echo strtoupper(substr($message['staff_name'], 0, 1)); ?></div>
                         <div style="flex:1">
                             <div style="font-weight:600;font-size:.92rem">
-                                <?php echo htmlspecialchars($message['staff_name']); ?></div>
+                                <?php echo htmlspecialchars($message['staff_name']); ?>
+                            </div>
                             <div style="font-size:.72rem;color:var(--text-muted)"><?php echo ucfirst($message['staff_role']); ?>
                             </div>
                         </div>

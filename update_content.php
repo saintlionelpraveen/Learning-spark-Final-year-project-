@@ -8,9 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'staff') {
 $staff_id = $_SESSION['user_id'];
 $staff_name = $_SESSION['name'];
 
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error)
-    die("Connection failed: " . $conn->connect_error);
+include 'config.php';
 
 $content_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 

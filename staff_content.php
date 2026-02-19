@@ -9,9 +9,7 @@ $user_id = $_SESSION['user_id'];
 $user_name = $_SESSION['name'];
 $staff_name = isset($_GET['staff']) ? $_GET['staff'] : '';
 
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error)
-    die("Connection failed: " . $conn->connect_error);
+include 'config.php';
 
 // Fetch staff info
 $stmt = $conn->prepare("SELECT * FROM users WHERE name = ? AND role = 'staff' AND pending_approval = 0");
@@ -139,7 +137,8 @@ $conn->close();
                 </div>
                 <div style="flex:1">
                     <h1 style="font-size:1.4rem;font-weight:700;margin-bottom:4px">
-                        <?php echo htmlspecialchars($staff_name); ?></h1>
+                        <?php echo htmlspecialchars($staff_name); ?>
+                    </h1>
                     <div style="font-size:.85rem;color:var(--text-secondary);margin-bottom:8px">
                         <i class="fas fa-envelope" style="margin-right:4px"></i>
                         <?php echo htmlspecialchars($staff['email']); ?>
@@ -203,9 +202,11 @@ $conn->close();
                                 </div>
                                 <div style="flex:1">
                                     <div style="font-weight:600;font-size:.92rem">
-                                        <?php echo htmlspecialchars($item['title']); ?></div>
+                                        <?php echo htmlspecialchars($item['title']); ?>
+                                    </div>
                                     <div class="text-xs text-muted"><?php echo ucfirst($item['type']); ?> ·
-                                        <?php echo date('M d, Y', strtotime($item['upload_date'])); ?></div>
+                                        <?php echo date('M d, Y', strtotime($item['upload_date'])); ?>
+                                    </div>
                                 </div>
                                 <span class="badge badge-primary">View</span>
                             </div>

@@ -4,9 +4,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'staff')
     die("Access denied");
 
 $staff_id = $_SESSION['user_id'];
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error)
-    die("Connection failed: " . $conn->connect_error);
+include 'config.php';
 
 $message = $conn->real_escape_string($_POST['message']);
 

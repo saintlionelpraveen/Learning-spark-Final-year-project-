@@ -8,9 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'staff') {
 $staff_name = $_SESSION['name'];
 $staff_id = $_SESSION['user_id'];
 
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error)
-    die("Connection failed: " . $conn->connect_error);
+include 'config.php';
 
 // Fetch staff profile info
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");

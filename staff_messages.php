@@ -8,9 +8,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'staff') {
 $staff_name = $_SESSION['name'];
 $staff_id = $_SESSION['user_id'];
 
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error)
-    die("Connection failed: " . $conn->connect_error);
+include 'config.php';
 
 // Handle reply to user
 if (isset($_POST['reply_user'])) {
@@ -62,7 +60,7 @@ $total_msgs = $user_messages->num_rows;
 $unread_count = 0;
 $replied_count = 0;
 // Count stats
-$conn2 = new mysqli("localhost", "root", "", "learning");
+include 'config.php';
 $result = $conn2->query("SELECT COUNT(*) as c FROM user_to_staff_messages WHERE staff_id = $staff_id AND is_read = 0");
 $unread_count = $result->fetch_assoc()['c'];
 $result = $conn2->query("SELECT COUNT(*) as c FROM user_to_staff_messages WHERE staff_id = $staff_id AND staff_reply IS NOT NULL AND staff_reply != ''");
@@ -248,7 +246,8 @@ $conn->close();
                             <div class="avatar rose"><?php echo strtoupper(substr($amsg['admin_name'], 0, 1)); ?></div>
                             <div style="flex:1">
                                 <div style="font-weight:600;font-size:.92rem">
-                                    <?php echo htmlspecialchars($amsg['admin_name']); ?></div>
+                                    <?php echo htmlspecialchars($amsg['admin_name']); ?>
+                                </div>
                                 <div style="font-size:.72rem;color:var(--text-muted)">Admin</div>
                             </div>
                             <?php if ($amsg['is_read']): ?>

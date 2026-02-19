@@ -13,10 +13,7 @@ if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
 }
 
 // Database connection
-$conn = new mysqli("localhost", "root", "", "learning");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'config.php';
 
 // Fetch stats
 $result = $conn->query("SELECT COUNT(*) as count FROM users WHERE role = 'user' AND pending_approval = 0");
@@ -357,7 +354,8 @@ $conn->close();
                             <div class="request-name"><?php echo htmlspecialchars($reg['name']); ?></div>
                             <div class="request-email"><?php echo htmlspecialchars($reg['email']); ?></div>
                             <div style="font-size:.72rem;color:#94a3b8;margin-top:2px">Registered
-                                <?php echo date('M d, Y h:i A', strtotime($reg['created_at'])); ?></div>
+                                <?php echo date('M d, Y h:i A', strtotime($reg['created_at'])); ?>
+                            </div>
                         </div>
                         <div class="request-actions">
                             <form method="POST" style="display:inline-flex;align-items:center;gap:6px">

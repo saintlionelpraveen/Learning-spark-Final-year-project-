@@ -21,8 +21,7 @@ $target_dir = $staff_folder . "/";
 $target_file = $target_dir . basename($file['name']);
 
 if (move_uploaded_file($file['tmp_name'], $target_file)) {
-    $conn = new mysqli("127.0.0.1", "root", "", "learning");
-    if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+    include 'config.php';
 
     $stmt = $conn->prepare("INSERT INTO staff_content (staff_id, title, type, file_path) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("isss", $staff_id, $title, $type, $target_file);

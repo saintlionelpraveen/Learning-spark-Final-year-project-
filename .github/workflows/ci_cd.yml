@@ -1,0 +1,54 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - version-o1
+
+jobs:
+  build-and-test:
+    name: Build & Test (PHP Lint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, intl, pdo, pdo_mysql
+          coverage: none
+
+      - name: Check Syntax (Lint)
+        run: find . -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
+
+  deploy:
+    name: Deploy to Production (FTP)
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/version-o1'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: sql203.infinityfree.com
+          username: if0_41193976
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /htdocs/ # Adjust this if your host uses a different public directory (e.g., /public_html/)
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .gitignore
+            .github/**
+            README.md
+            USER_MANUAL.md
+            RELEASE_NOTES.md
+            LICENSE
+            *.sql

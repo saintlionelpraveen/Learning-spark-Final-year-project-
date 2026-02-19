@@ -10,8 +10,7 @@ $staff_name = $_SESSION['name'];
 $message = $_POST['message'];
 $admin_id = 1; // Hardcoded as Admin (id=1) from your dump
 
-$conn = new mysqli("127.0.0.1", "root", "", "learning");
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+include 'config.php';
 
 $stmt = $conn->prepare("INSERT INTO notifications (staff_id, admin_id, message) VALUES (?, ?, ?)");
 $stmt->bind_param("iis", $staff_id, $admin_id, $message);
