@@ -222,7 +222,14 @@ $conn->close();
                                     </div>
                                 <?php elseif ($item['type'] === 'document' && $item['file_path']): ?>
                                     <div class="preview-container" style="background:#f1f5f9">
-                                        <iframe src="<?php echo htmlspecialchars($item['file_path']); ?>"></iframe>
+                                        <iframe src="view_pdf.php?content_id=<?php echo $item['content_id']; ?>" width="100%"
+                                            height="500px"></iframe>
+                                        <div style="text-align:right;padding:8px">
+                                            <a href="view_pdf.php?content_id=<?php echo $item['content_id']; ?>&download=1"
+                                                class="btn btn-sm btn-primary">
+                                                <i class="fas fa-download"></i> Download
+                                            </a>
+                                        </div>
                                     </div>
                                 <?php elseif ($item['type'] === 'blog'): ?>
                                     <?php if ($item['image_path'] && file_exists($item['image_path'])): ?>
