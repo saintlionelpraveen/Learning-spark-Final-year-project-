@@ -39,7 +39,7 @@ jobs:
         with:
           server: sql203.infinityfree.com
           username: if0_41193976
-          password: ${{ secrets.FTP_PASSWORD }}
+          password: tebi1328
           server-dir: /htdocs/ # Adjust this if your host uses a different public directory (e.g., /public_html/)
           exclude: |
             **/.git*
