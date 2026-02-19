@@ -23,11 +23,13 @@ try {
 }
 
 // Function to safely close connection (optional usage)
-function close_db_connection()
-{
-    global $conn;
-    if ($conn) {
-        $conn->close();
+if (!function_exists('close_db_connection')) {
+    function close_db_connection()
+    {
+        global $conn;
+        if ($conn) {
+            $conn->close();
+        }
     }
 }
 ?>
