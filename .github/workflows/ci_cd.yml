@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - version-o1
+      - version-01
 
 jobs:
   build-and-test:
@@ -27,7 +27,7 @@ jobs:
     name: Deploy to Production (FTP)
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/version-o1'
+    if: github.ref == 'refs/heads/version-01'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
