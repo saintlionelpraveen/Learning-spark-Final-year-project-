@@ -60,12 +60,11 @@ $total_msgs = $user_messages->num_rows;
 $unread_count = 0;
 $replied_count = 0;
 // Count stats
-include 'config.php';
-$result = $conn2->query("SELECT COUNT(*) as c FROM user_to_staff_messages WHERE staff_id = $staff_id AND is_read = 0");
+// Count stats
+$result = $conn->query("SELECT COUNT(*) as c FROM user_to_staff_messages WHERE staff_id = $staff_id AND is_read = 0");
 $unread_count = $result->fetch_assoc()['c'];
-$result = $conn2->query("SELECT COUNT(*) as c FROM user_to_staff_messages WHERE staff_id = $staff_id AND staff_reply IS NOT NULL AND staff_reply != ''");
+$result = $conn->query("SELECT COUNT(*) as c FROM user_to_staff_messages WHERE staff_id = $staff_id AND staff_reply IS NOT NULL AND staff_reply != ''");
 $replied_count = $result->fetch_assoc()['c'];
-$conn2->close();
 
 $conn->close();
 ?>
