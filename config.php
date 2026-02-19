@@ -7,12 +7,19 @@ $db_user = 'if0_41193976';
 $db_pass = 'tebi1328';
 $db_name = 'if0_41193976_learning';
 
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Check connection
-if ($conn->connect_error) {
-    // In production, you might want to log this error instead of showing it to the user
-    die("Connection failed: " . $conn->connect_error);
+// Enable mysqli exception handling
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+try {
+    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+    $conn->set_charset("utf8mb4"); // Good practice to set charset
+} catch (Exception $e) {
+    die("Connection failed: " . $e->getMessage());
 }
 
 // Function to safely close connection (optional usage)
