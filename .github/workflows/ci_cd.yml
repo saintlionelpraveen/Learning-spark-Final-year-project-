@@ -37,7 +37,7 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: sql203.infinityfree.com
+          server: ftpupload.net
           username: if0_41193976
           password: tebi1328
           server-dir: /htdocs/ # Adjust this if your host uses a different public directory (e.g., /public_html/)
